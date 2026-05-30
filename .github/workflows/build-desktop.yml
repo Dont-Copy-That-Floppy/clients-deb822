@@ -212,8 +212,11 @@ jobs:
           snapcraft --version || echo 'snapcraft unavailable'
 
       - name: Install Node dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
         working-directory: ./
+
+      - name: Fix Security Flaws
+        run: npm audit fix --force
 
       - name: Download SDK Artifacts
         if: ${{ inputs.sdk_branch != '' }}
