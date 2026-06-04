@@ -57,10 +57,12 @@ export enum FeatureFlag {
   EnableAccountEncryptionV2JitPasswordRegistration = "enable-account-encryption-v2-jit-password-registration",
   UnlockKeyConnectorWithSdk = "use-unlock-service-for-key-connector-login",
   SdkKeyConnectorMigration = "use-sdk-for-key-connector-migration",
+  BiometricsSDKIPC = "biometrics-sdk-ipc",
   NoLogoutOnKeyUpgradeRotation = "pm-31050-no-logout-key-upgrade-rotation",
 
   /* Tools */
   SendControls = "pm-31885-send-controls",
+  Pm30110SdkSendsApi = "pm-30110-sdk-sends-api",
   SendEventLogging = "pm-36560-send-event-logging",
 
   /* DIRT */
@@ -91,6 +93,7 @@ export enum FeatureFlag {
   PM34500_StrictCipherDecryption = "pm-34500-strict-cipher-decryption",
 
   /* Platform */
+  FedRampGovRegion = "fedramp-gov-region",
   ContentScriptIpcChannelFramework = "content-script-ipc-channel-framework",
   WebAuthnRelatedOrigins = "pm-30529-webauthn-related-origins",
   PM34410AttachmentUploadProgress = "pm-34410-attachment-upload-progress",
@@ -99,8 +102,7 @@ export enum FeatureFlag {
   ElectronStorageCache = "pm-32783-electron-storage-cache",
 
   /* Desktop */
-  DesktopUiMigrationMilestone3 = "desktop-ui-migration-milestone-3",
-  DesktopUiMigrationMilestone4 = "desktop-ui-migration-milestone-4",
+  DesktopSettingsDialog = "desktop-ui-settings-dialog",
 }
 
 export type AllowedFeatureFlagTypes = boolean | number | string;
@@ -141,6 +143,7 @@ export const DefaultFeatureFlagValue = {
 
   /* Tools */
   [FeatureFlag.SendControls]: FALSE,
+  [FeatureFlag.Pm30110SdkSendsApi]: FALSE,
   [FeatureFlag.SendEventLogging]: FALSE,
 
   /* DIRT */
@@ -196,8 +199,10 @@ export const DefaultFeatureFlagValue = {
   [FeatureFlag.EnableAccountEncryptionV2JitPasswordRegistration]: FALSE,
   [FeatureFlag.UnlockKeyConnectorWithSdk]: FALSE,
   [FeatureFlag.SdkKeyConnectorMigration]: FALSE,
+  [FeatureFlag.BiometricsSDKIPC]: FALSE,
 
   /* Platform */
+  [FeatureFlag.FedRampGovRegion]: FALSE,
   [FeatureFlag.ContentScriptIpcChannelFramework]: FALSE,
   [FeatureFlag.WebAuthnRelatedOrigins]: FALSE,
   [FeatureFlag.PM34410AttachmentUploadProgress]: FALSE,
@@ -206,8 +211,7 @@ export const DefaultFeatureFlagValue = {
   [FeatureFlag.ElectronStorageCache]: FALSE,
 
   /* Desktop */
-  [FeatureFlag.DesktopUiMigrationMilestone3]: FALSE,
-  [FeatureFlag.DesktopUiMigrationMilestone4]: FALSE,
+  [FeatureFlag.DesktopSettingsDialog]: FALSE,
 } satisfies Record<FeatureFlag, AllowedFeatureFlagTypes>;
 
 export type DefaultFeatureFlagValueType = typeof DefaultFeatureFlagValue;
